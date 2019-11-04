@@ -24,9 +24,9 @@ from matplotlib import colors
 
 ### Global vars 
 a = 80 # y model domain
-b = 80 # x model domain 
+b = 50 # x model domain 
 t_p = 0.6 # Proportion of trees to empty space
-timesteps = 10
+timesteps = 5
 n_starting_fires = 6
 
 ### Set up model 
@@ -34,7 +34,7 @@ forest = np.zeros((a, b, timesteps), dtype=int)
 forest[np.random.randint(low = 0, high = a, size = int(a*b*t_p)), 
        np.random.randint(low = 0, high = b, size = int(a*b*t_p)), 
        np.zeros(int(a*b*t_p), dtype=int)] = -1
-forest[:,0] = -1; forest[:,a-1] = -1; forest[0,:] = -1; forest[b-1,:] = -1
+forest[:,0] = -1; forest[:,b-1] = -1; forest[0,:] = -1; forest[a-1,:] = -1
 
 ### Set up colours 
 colors_list = [(0.2,0,0), (0,0.5,0), (1,0,0), 'orange']
